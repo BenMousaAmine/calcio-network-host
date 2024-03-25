@@ -4,21 +4,12 @@
     <title>Reindirizzamento App</title>
 </head>
 <body>
-    <script type="text/javascript">
-        function getQueryParam(param, defaultValue = '') {
-            var urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param) || defaultValue;
-        }
-
-        var idSocieta = encodeURIComponent(getQueryParam('id_societa'));
-var nomeSocieta = encodeURIComponent(getQueryParam('nome_societa'));
-var appUrl = `calcio-network:///inviteReferente`;
-
-
-      setTimeout(function() {
+      <script type="text/javascript">
+        setTimeout(function() {
             window.location = "calcio-network:///inviteReferente";
         }, 1000); // Attendi 1 secondo prima di reindirizzare
     </script>
+    <p>Reindirizzamento all'app... Se non vieni reindirizzato automaticamente, <a href="exp://192.168.1.199:8081/--/inviteReferente">clicca qui</a>.</p>
     <p>Reindirizzamento all'app... Se non vieni reindirizzato automaticamente, <a href="javascript:void(0);" onclick="window.location.href = appUrl">clicca qui</a>.</p>
     <p>Se l'app non si apre, assicurati di averla installata sul tuo dispositivo o <a href="URL alla pagina di download dell'app">scaricala qui</a>.</p>
     <script type="text/javascript">
