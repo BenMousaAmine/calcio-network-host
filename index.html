@@ -1,20 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Reindirizzamento App</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        // Ottieni i parametri dall'URL
+        function getParams(url) {
+            var params = {};
+            var parser = document.createElement('a');
+            parser.href = url;
+            var query = parser.search.substring(1);
+            var vars = query.split('&');
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split('=');
+                params[pair[0]] = decodeURIComponent(pair[1]);
+            }
+            return params;
+        }
+
+        // Eseguo il redirect
+        window.onload = function() {
+            var params = getParams(window.location.href);
+            var idSocieta = params['id_societa'];
+            var nomeSocieta = params['nome_societa'];
+            
+            // Costruisci l'URL per l'app mobile con i parametri
+            var mobileAppUrl = `calcio-network:///inviteReferente?id_societa=${idSocieta}&nome_societa=${nomeSocieta}`;
+
+            // Reindirizza all'app mobile
+            window.location.replace(mobileAppUrl);
+        }
+    </script>
 </head>
 <body>
-       <script type="text/javascript">
-        setTimeout(function() {
-            window.location = "exp://192.168.1.199:8081/--/inviteReferente";
-        }, 1000); // Attendi 1 secondo prima di reindirizzare
-    </script>
-    <p>Reindirizzamento all'app... Se non vieni reindirizzato automaticamente, <a href="exp://192.168.1.199:8081/--/inviteReferente">clicca qui</a>.</p>
-    <p>Reindirizzamento all'app... Se non vieni reindirizzato automaticamente, <a href="javascript:void(0);" onclick="window.location.href = appUrl">clicca qui</a>.</p>
-    <p>Se l'app non si apre, assicurati di averla installata sul tuo dispositivo o <a href="URL alla pagina di download dell'app">scaricala qui</a>.</p>
-    <script type="text/javascript">
-        var appUrlElement = document.querySelector('a');
-        appUrlElement.href = appUrl;
-    </script>
+    <p>Redirecting to the app...</p>
 </body>
 </html>
