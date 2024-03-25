@@ -15,13 +15,9 @@ var nomeSocieta = encodeURIComponent(getQueryParam('nome_societa'));
 var appUrl = `calcio-network:///inviteReferente`;
 
 
-        setTimeout(function() {
-            try {
-                window.location = appUrl;
-            } catch (e) {
-                console.log("Errore nel reindirizzamento: ", e);
-            }
-        }, 1000);
+      setTimeout(function() {
+            window.location = "calcio-network:///inviteReferente";
+        }, 1000); // Attendi 1 secondo prima di reindirizzare
     </script>
     <p>Reindirizzamento all'app... Se non vieni reindirizzato automaticamente, <a href="javascript:void(0);" onclick="window.location.href = appUrl">clicca qui</a>.</p>
     <p>Se l'app non si apre, assicurati di averla installata sul tuo dispositivo o <a href="URL alla pagina di download dell'app">scaricala qui</a>.</p>
