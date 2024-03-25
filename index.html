@@ -4,11 +4,10 @@
     <title>Redirecting...</title>
     <script type="text/javascript">
         function redirectToApp() {
-            var params = new URLSearchParams(window.location.search);
-            var idSocieta = params.get('id_societa');
+          
             var destinationUrl = `calcio-network:///inviteReferente`;
             // Effettua il reindirizzamento
-            window.location.href = destinationUrl;
+            window.location = destinationUrl;
         }
     </script>
 </head>
