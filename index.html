@@ -10,9 +10,10 @@
             return urlParams.get(param) || defaultValue;
         }
 
-        var idSocieta = getQueryParam('id_societa');
-        var nomeSocieta = getQueryParam('nome_societa');
-        var appUrl = "calcio-network:///inviteReferente?id_societa=" + encodeURIComponent(idSocieta) + "&nome_societa=" + encodeURIComponent(nomeSocieta);
+        var idSocieta = encodeURIComponent(getQueryParam('id_societa'));
+var nomeSocieta = encodeURIComponent(getQueryParam('nome_societa'));
+var appUrl = `calcio-network:///inviteReferente?id_societa=${idSocieta}&nome_societa=${nomeSocieta}`;
+
 
         setTimeout(function() {
             try {
