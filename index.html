@@ -15,14 +15,18 @@
         var appUrl = "calcio-network:///inviteReferente?id_societa=" + encodeURIComponent(idSocieta) + "&nome_societa=" + encodeURIComponent(nomeSocieta);
 
         setTimeout(function() {
-            window.location = appUrl;
+            try {
+                window.location = appUrl;
+            } catch (e) {
+                console.log("Errore nel reindirizzamento: ", e);
+            }
         }, 1000);
     </script>
-    <p>Reindirizzamento all'app... Se non vieni reindirizzato automaticamente, <a href="javascript:void(0);" onclick="window.location = appUrl">clicca qui</a>.</p>
+    <p>Reindirizzamento all'app... Se non vieni reindirizzato automaticamente, <a href="javascript:void(0);" onclick="window.location.href = appUrl">clicca qui</a>.</p>
+    <p>Se l'app non si apre, assicurati di averla installata sul tuo dispositivo o <a href="URL alla pagina di download dell'app">scaricala qui</a>.</p>
     <script type="text/javascript">
         var appUrlElement = document.querySelector('a');
         appUrlElement.href = appUrl;
     </script>
 </body>
 </html>
-
