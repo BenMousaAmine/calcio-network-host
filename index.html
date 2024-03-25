@@ -2,16 +2,22 @@
 <html>
 <head>
     <title>Redirecting...</title>
-    </head>
-    <body >
-   <script type="text/javascript">
+</head>
+<body>
+    <script type="text/javascript">
+        function getQueryParam(param) {
+            var searchParams = new URLSearchParams(window.location.search);
+            return searchParams.get(param);
+        }
+
         setTimeout(function() {
-            window.location = "exp://192.168.1.199:8081/--/inviteReferente";
+            var societaId = getQueryParam("id_societa"); // Ottieni il parametro id_societa dall'URL
+            // Includi il parametro id_societa nell'URL di reindirizzamento verso Expo
+            window.location = "exp://192.168.1.199:8081/--/inviteReferente?id_societa=" + societaId;
         }, 1000); // Attendi 1 secondo prima di reindirizzare
     </script>
 
-
-    <p>Reindirizzamento all'app... Se non vieni reindirizzato automaticamente, <a href="calcio-network:///inviteReferente">clicca qui</a>.</p>
-</body>
+    <p>Reindirizzamento all'app Expo... Se non vieni reindirizzato automaticamente, <a href="javascript:void(0);" onclick="window.location='exp://192.168.1.199:8081/--/inviteReferente?id_societa=' + getQueryParam('id_societa')">clicca qui</a>.</p>
 </body>
 </html>
+
