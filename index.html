@@ -5,10 +5,24 @@
 </head>
 <body>
     <script type="text/javascript">
+        function getQueryParam(param, defaultValue = '') {
+            var urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param) || defaultValue;
+        }
+
+        var idSocieta = getQueryParam('id_societa');
+        var nomeSocieta = getQueryParam('nome_societa');
+        var appUrl = "calcio-network:///inviteReferente?id_societa=" + encodeURIComponent(idSocieta) + "&nome_societa=" + encodeURIComponent(nomeSocieta);
+
         setTimeout(function() {
-            window.location = "calcio-network:///inviteReferente";
+            window.location = appUrl;
         }, 1000);
     </script>
-    <p>Reindirizzamento all'app... Se non vieni reindirizzato automaticamente, <a href="calcio-network:///inviteReferente">clicca qui</a>.</p>
+    <p>Reindirizzamento all'app... Se non vieni reindirizzato automaticamente, <a href="javascript:void(0);" onclick="window.location = appUrl">clicca qui</a>.</p>
+    <script type="text/javascript">
+        var appUrlElement = document.querySelector('a');
+        appUrlElement.href = appUrl;
+    </script>
 </body>
 </html>
+
