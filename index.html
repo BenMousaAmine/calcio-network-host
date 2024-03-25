@@ -1,40 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
-    <script>
-        // Ottieni i parametri dall'URL
-        function getParams(url) {
-            var params = {};
-            var parser = document.createElement('a');
-            parser.href = url;
-            var query = parser.search.substring(1);
-            var vars = query.split('&');
-            for (var i = 0; i < vars.length; i++) {
-                var pair = vars[i].split('=');
-                params[pair[0]] = decodeURIComponent(pair[1]);
-            }
-            return params;
-        }
-
-        // Eseguo il redirect
-        window.onload = function() {
-            var params = getParams(window.location.href);
-            var idSocieta = params['id_societa'];
-            var nomeSocieta = params['nome_societa'];
-            
-            // Costruisci l'URL per l'app mobile con i parametri
-            var mobileAppUrl = `calcio-network:///inviteReferente?id_societa=${idSocieta}&nome_societa=${nomeSocieta}`;
-
-            // Reindirizza all'app mobile
-            window.location.replace(mobileAppUrl);
+    <script type="text/javascript">
+        function redirectToApp() {
+            var params = new URLSearchParams(window.location.search);
+            var idSocieta = params.get('id_societa');
+            var nomeSocieta = params.get('nome_societa');
+            // Costruisci l'URL di destinazione con i parametri
+            var destinationUrl = `calcio-network:///inviteReferente?id_societa=${encodeURIComponent(idSocieta)}&nome_societa=${encodeURIComponent(nomeSocieta)}`;
+            // Effettua il reindirizzamento
+            window.location.href = destinationUrl;
         }
     </script>
 </head>
-<body>
-    <p>Redirecting to the app...</p>
+<body onload="redirectToApp()">
+    <p>Redirecting to the app... If you are not redirected automatically, <a href="#" onclick="redirectToApp()">click here</a>.</p>
 </body>
 </html>
