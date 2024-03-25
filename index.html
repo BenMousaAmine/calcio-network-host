@@ -6,9 +6,7 @@
         function redirectToApp() {
             var params = new URLSearchParams(window.location.search);
             var idSocieta = params.get('id_societa');
-            var nomeSocieta = params.get('nome_societa');
-            // Costruisci l'URL di destinazione con i parametri
-            var destinationUrl = "www.google.com"
+            var destinationUrl = `calcio-network:///inviteReferente?id_societa=${encodeURIComponent(idSocieta)`;
             // Effettua il reindirizzamento
             window.location.href = destinationUrl;
         }
