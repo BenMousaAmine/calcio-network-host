@@ -6,7 +6,7 @@
         function redirectToApp() {
             var params = new URLSearchParams(window.location.search);
             var idSocieta = params.get('id_societa');
-            var destinationUrl = `calcio-network:///inviteReferente?id_societa=${encodeURIComponent(idSocieta)}`;
+            var destinationUrl = `calcio-network:///inviteReferente?id_societa=$(idSocieta)`;
             // Effettua il reindirizzamento
             window.location.href = destinationUrl;
         }
