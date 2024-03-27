@@ -13,11 +13,11 @@
         setTimeout(function() {
             var societaId = getQueryParam("id_societa"); // Ottieni il parametro id_societa dall'URL
             // Includi il parametro id_societa nell'URL di reindirizzamento verso Expo
-            window.location = "exp://192.168.1.199:8081/--/inviteReferente?id_societa=" + societaId;
+            window.location = "calcio-network:/--/inviteReferente?id_societa=" + societaId;
         }, 1000); // Attendi 1 secondo prima di reindirizzare
     </script>
 
-    <p>Reindirizzamento all'app Calcio-network... Se non vieni reindirizzato automaticamente, <a href="javascript:void(0);" onclick="window.location='exp://192.168.1.199:8081/--/inviteReferente?id_societa=' + getQueryParam('id_societa')">clicca qui</a>.</p>
+    <p>Reindirizzamento all'app Calcio-network... Se non vieni reindirizzato automaticamente, <a href="javascript:void(0);" onclick="window.location='calcio-network:/--/inviteReferente?id_societa=' + getQueryParam('id_societa')">clicca qui</a>.</p>
 </body>
 </html>
 
